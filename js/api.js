@@ -11,14 +11,32 @@ const getApiBaseUrl = () => {
 
 const API_BASE_URL = getApiBaseUrl();
 
+//class ApiClient {
+  //  constructor() {
+    //    this.baseURL = API_BASE_URL;
+      //  this.token = localStorage.getItem('token');
+        
+        // Log para debugging
+        //console.log('API Base URL:', this.baseURL);
+    //}
+  //Agregar codigo para arreglar login
+
 class ApiClient {
     constructor() {
         this.baseURL = API_BASE_URL;
-        this.token = localStorage.getItem('token');
-        
-        // Log para debugging
-        console.log('API Base URL:', this.baseURL);
     }
+    
+    async login(email, password) {
+        const response = await fetch(`${this.baseURL}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        return response.json();
+    }
+}
+
+const api = new ApiClient();
 
     // Helper para headers con autorización
     getHeaders() {
