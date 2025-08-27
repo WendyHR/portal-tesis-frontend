@@ -11,9 +11,9 @@ const CONFIG = {
 //Actualización de frontened para usar backend en producción
 // En js/config.js - actualizar función getApiBaseUrl()
 function getApiBaseUrl() {
-    // Producción: URL del backend desplegado
+    // Producción: URL de tu App Service real
     if (window.location.hostname.includes('azurestaticapps.net')) {
-        return 'https://black-sea-0a9d2fe10.2.azurestaticapps.net/api';
+        return 'https://portal-tesis-backend-g3bfedesdvbsc6az.centralus-01.azurewebsites.net/api';
     }
     
     // Desarrollo: backend local
